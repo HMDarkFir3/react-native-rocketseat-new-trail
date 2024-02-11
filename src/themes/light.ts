@@ -16,4 +16,8 @@ export const light = {
 
     danger: '#E25858',
   },
+  fonts: {
+    regular: 'Inter_400Regular',
+    bold: 'Inter_700Bold',
+  },
 };
