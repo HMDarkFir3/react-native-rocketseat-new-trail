@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
+import { Appearance } from 'react-native';
 import {
   ThemeProvider as StyledThemeProvider,
   DefaultTheme,
@@ -22,7 +23,9 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const [theme, setTheme] = useState(dark);
+  const [theme, setTheme] = useState(
+    Appearance.getColorScheme() === 'light' ? light : dark,
+  );
 
   const onToggleTheme = async () => {
     setTheme(theme.title === 'light' ? dark : light);
@@ -36,8 +39,6 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   useEffect(() => {
     const loadTheme = async () => {
       const themeStoraged = await AsyncSorage.getItem(THEME_COLLECTION);
-
-      console.log(themeStoraged);
 
       if (themeStoraged) {
         setTheme(JSON.parse(themeStoraged));
