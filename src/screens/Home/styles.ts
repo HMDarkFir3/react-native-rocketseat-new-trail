@@ -27,3 +27,15 @@ export const Floating = styled.View`
 
   margin-top: -26px;
 `;
+
+export const QuantityWrapper = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 32px;
+  padding-bottom: 12px;
+
+  border-bottom-width: 1px;
+  border-bottom-color: ${({ theme }) => theme.colors.gray400};
+`;
