@@ -1,6 +1,10 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 
-export const Container = styled.View`
+interface ContainerProps {
+  isBorder: boolean;
+}
+
+export const Container = styled.View<ContainerProps>`
   flex: 1;
   justify-content: center;
 
@@ -11,6 +15,12 @@ export const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.gray500};
   border-radius: 6px;
   border: 1px solid ${({ theme }) => theme.colors.gray700};
+
+  ${({ isBorder }) =>
+    isBorder &&
+    css`
+      border-color: ${({ theme }) => theme.colors.purpleDark};
+    `}
 `;
 
 export const StyledInput = styled.TextInput`

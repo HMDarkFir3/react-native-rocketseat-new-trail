@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PlusCircle } from 'phosphor-react-native';
 
 import { Input } from '@/components/Input';
@@ -9,6 +9,8 @@ import Logo from '../../assets/logo.svg';
 import { Container, Wrapper, Header, Floating } from './styles';
 
 export const Home = () => {
+  const [task, setTask] = useState<string>('');
+
   return (
     <Container>
       <Header>
@@ -17,7 +19,11 @@ export const Home = () => {
 
       <Wrapper>
         <Floating>
-          <Input placeholder="Adicione uma nova tarefa" />
+          <Input
+            value={task}
+            onChangeText={setTask}
+            placeholder="Adicione uma nova tarefa"
+          />
           <SmallButton icon={{ component: PlusCircle, style: { size: 20 } }} />
         </Floating>
       </Wrapper>

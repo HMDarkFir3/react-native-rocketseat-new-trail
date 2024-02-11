@@ -5,13 +5,11 @@ import { Icon, IconProps } from 'phosphor-react-native';
 
 import { Border, Container } from './styles';
 
-interface IconType {
-  component: Icon;
-  style?: IconProps;
-}
-
 interface Props extends RectButtonProps {
-  icon: IconType;
+  icon: {
+    component: Icon;
+    style?: IconProps;
+  };
 }
 
 export const SmallButton = (props: Props) => {
