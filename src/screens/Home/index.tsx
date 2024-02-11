@@ -1,4 +1,5 @@
 import React from 'react';
+import { PlusCircle } from 'phosphor-react-native';
 
 import { Input } from '@/components/Input';
 import { SmallButton } from '@/components/SmallButton';
@@ -17,7 +18,7 @@ export const Home = () => {
       <Wrapper>
         <Floating>
           <Input placeholder="Adicione uma nova tarefa" />
-          <SmallButton />
+          <SmallButton icon={{ component: PlusCircle, style: { size: 20 } }} />
         </Floating>
       </Wrapper>
     </Container>
