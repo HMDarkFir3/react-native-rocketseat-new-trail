@@ -34,4 +34,5 @@ export const QuantityWrapper = styled.View`
   justify-content: space-between;
 
   margin-top: 32px;
+  padding-bottom: 20px;
 `;

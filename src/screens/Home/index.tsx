@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { FlatList, Text } from 'react-native';
 import { PlusCircle } from 'phosphor-react-native';
 
 import { Input } from '@/components/Input';
 import { SmallButton } from '@/components/SmallButton';
 import { QuantityCard } from '@/components/QuantityCard';
+import { TaskCardEmpty } from '@/components/TaskCard';
 
 import { TaskDTO } from '@/dtos/TaskDTO';
 
@@ -19,18 +21,7 @@ import {
 
 export const Home = () => {
   const [task, setTask] = useState<string>('');
-  const [tasks, setTasks] = useState<TaskDTO[]>([
-    {
-      id: '1',
-      name: 'Fazer café',
-      done: false,
-    },
-    {
-      id: '2',
-      name: 'Fazer café',
-      done: false,
-    },
-  ]);
+  const [tasks, setTasks] = useState<TaskDTO[]>([]);
 
   return (
     <Container>
@@ -52,6 +43,13 @@ export const Home = () => {
           <QuantityCard title="Criadas" quantity={tasks.length} type="create" />
           <QuantityCard title="Concluídas" quantity={0} type="done" />
         </QuantityWrapper>
+
+        <FlatList
+          data={tasks}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => <Text>{item.name}</Text>}
+          ListEmptyComponent={() => <TaskCardEmpty />}
+        />
       </Wrapper>
     </Container>
   );
