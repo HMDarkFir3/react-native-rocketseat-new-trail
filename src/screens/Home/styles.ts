@@ -14,13 +14,13 @@ export const Header = styled.View`
   margin-top: ${STATUS_BAR_HEIGHT + 40}px;
 `;
 
-export const Title = styled.Text`
+export const EventName = styled.Text`
   font-size: 24px;
   font-family: ${({ theme }) => theme.fonts.bold};
   color: ${({ theme }) => theme.colors.text100};
 `;
 
-export const Date = styled.Text`
+export const EventDate = styled.Text`
   font-size: 16px;
   font-family: ${({ theme }) => theme.fonts.regular};
   color: ${({ theme }) => theme.colors.text600};
@@ -31,4 +31,19 @@ export const InputWrapper = styled.View`
   gap: 8px;
 
   margin: 36px 0 48px 0;
+`;
+
+export const Participants = styled.Text`
+  font-size: 20px;
+  font-family: ${({ theme }) => theme.fonts.bold};
+  color: ${({ theme }) => theme.colors.text100};
+`;
+
+export const EmptyParticipants = styled.Text`
+  margin-top: 28px;
+
+  text-align: center;
+  font-size: 16px;
+  font-family: ${({ theme }) => theme.fonts.regular};
+  color: ${({ theme }) => theme.colors.text100};
 `;
