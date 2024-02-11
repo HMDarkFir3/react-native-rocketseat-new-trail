@@ -28,6 +28,22 @@ export const Home = () => {
     }
   };
 
+  const onRemoveParticipant = (participant: string) => {
+    Alert.alert('Atenção', `Deseja remover ${participant} da lista?`, [
+      {
+        text: 'Cancelar',
+        style: 'cancel',
+      },
+      {
+        text: 'Remover',
+        onPress: () =>
+          setParticipants((prev) =>
+            prev.filter((name) => name !== participant),
+          ),
+      },
+    ]);
+  };
+
   return (
     <Container>
       <Header>
@@ -51,7 +67,12 @@ export const Home = () => {
         contentContainerStyle={{ gap: 8 }}
         data={participants}
         keyExtractor={(item) => item}
-        renderItem={({ item }) => <ParticipantCard name={item} />}
+        renderItem={({ item }) => (
+          <ParticipantCard
+            name={item}
+            onRemove={() => onRemoveParticipant(item)}
+          />
+        )}
         ListEmptyComponent={() => (
           <EmptyParticipants>
             Ninguém chegou no evento ainda?{'\n'}Adicione participantes a sua

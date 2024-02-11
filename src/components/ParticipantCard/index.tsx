@@ -6,15 +6,16 @@ import { Container, Name } from './styles';
 
 interface Props {
   name: string;
+  onRemove: () => void;
 }
 
 export const ParticipantCard = (props: Props) => {
-  const { name } = props;
+  const { name, onRemove } = props;
 
   return (
     <Container>
       <Name>{name}</Name>
-      <SmallButton type="remove" />
+      <SmallButton type="remove" onPress={onRemove} />
     </Container>
   );
 };
