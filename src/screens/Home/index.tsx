@@ -1,8 +1,10 @@
 import React from 'react';
 
+import { Input } from '@/components/Input';
+
 import Logo from '../../assets/logo.svg';
 
-import { Container, Header } from './styles';
+import { Container, Wrapper, Header, InputWrapper } from './styles';
 
 export const Home = () => {
   return (
@@ -10,6 +12,12 @@ export const Home = () => {
       <Header>
         <Logo />
       </Header>
+
+      <Wrapper>
+        <InputWrapper>
+          <Input placeholder="Adicione uma nova tarefa" />
+        </InputWrapper>
+      </Wrapper>
     </Container>
   );
 };
