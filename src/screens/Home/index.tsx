@@ -35,6 +35,8 @@ export const Home = () => {
     },
   ]);
 
+  const doneTasks = tasks.filter((task) => task.isDone).length;
+
   const onAddTask = (taskName: string) => {
     if (!taskName) {
       return Alert.alert('Atenção', 'Informe o nome da tarefa');
@@ -107,7 +109,7 @@ export const Home = () => {
 
         <QuantityWrapper>
           <QuantityCard title="Criadas" quantity={tasks.length} type="create" />
-          <QuantityCard title="Concluídas" quantity={0} type="done" />
+          <QuantityCard title="Concluídas" quantity={doneTasks} type="done" />
         </QuantityWrapper>
 
         <FlatList
