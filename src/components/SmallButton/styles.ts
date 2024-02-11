@@ -14,9 +14,9 @@ export const Border = styled.View`
 export const Container = styled(RectButton)<ContainerProps>`
   align-items: center;
   justify-content: center;
+  flex: 1;
 
   width: 56px;
-  height: 56px;
 
   ${({ type }) =>
     type === 'add' &&
