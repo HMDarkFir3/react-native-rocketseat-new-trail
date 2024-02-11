@@ -7,6 +7,7 @@ const dark = {
     text600: '#6B6B6B',
     green100: '#31CF67',
     red100: '#E23C44',
+    yellow50: '#FDB813',
   },
   fonts: {
     regular: 'Roboto_400Regular',

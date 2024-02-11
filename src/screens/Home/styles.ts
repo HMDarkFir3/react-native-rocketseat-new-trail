@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { BorderlessButton } from 'react-native-gesture-handler';
 
 import { STATUS_BAR_HEIGHT } from '@/utils/constants';
 
@@ -11,8 +12,14 @@ export const Container = styled.View`
 `;
 
 export const Header = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
   margin-top: ${STATUS_BAR_HEIGHT + 40}px;
 `;
+
+export const EventWrapper = styled.View``;
 
 export const EventName = styled.Text`
   font-size: 24px;
@@ -25,6 +32,8 @@ export const EventDate = styled.Text`
   font-family: ${({ theme }) => theme.fonts.regular};
   color: ${({ theme }) => theme.colors.text600};
 `;
+
+export const ThemeButton = styled(BorderlessButton)``;
 
 export const InputWrapper = styled.View`
   flex-direction: row;

@@ -1,6 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import { FlatList, Alert } from 'react-native';
 import uuid from 'react-native-uuid';
+import { useTheme } from 'styled-components';
+import { Sun, Moon } from 'phosphor-react-native';
 
 import { Input } from '@/components/Input';
 import { SmallButton } from '@/components/SmallButton';
@@ -11,14 +13,18 @@ import { ParticipantDTO } from '@/dtos/ParticipantDTO';
 import {
   Container,
   Header,
+  EventWrapper,
   EventName,
   EventDate,
+  ThemeButton,
   InputWrapper,
   Participants,
   EmptyParticipants,
 } from './styles';
 
 export const Home = () => {
+  const theme = useTheme();
+
   const [participantName, setParticipantName] = useState<string>('');
   const [participants, setParticipants] = useState<ParticipantDTO[]>([]);
 
@@ -62,8 +68,18 @@ export const Home = () => {
   return (
     <Container>
       <Header>
-        <EventName>Rocketseat</EventName>
-        <EventDate>Sexta, 4 de Novembro de 2022.</EventDate>
+        <EventWrapper>
+          <EventName>Rocketseat</EventName>
+          <EventDate>Sexta, 4 de Novembro de 2022.</EventDate>
+        </EventWrapper>
+
+        <ThemeButton>
+          {theme.title === 'dark' ? (
+            <Sun size={24} color={theme.colors.yellow50} weight="fill" />
+          ) : (
+            <Moon size={24} color={theme.colors.yellow50} weight="fill" />
+          )}
+        </ThemeButton>
       </Header>
 
       <InputWrapper>

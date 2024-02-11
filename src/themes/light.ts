@@ -7,6 +7,7 @@ const light = {
     text600: '#6B6B6B',
     green100: '#2ECC71',
     red100: '#E74C3C',
+    yellow50: '#E6E4C3',
   },
   fonts: {
     regular: 'Roboto_400Regular',
