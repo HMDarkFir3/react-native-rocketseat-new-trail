@@ -76,9 +76,9 @@ export const Home = () => {
 
         <ThemeButton onPress={onToggleTheme}>
           {theme.title === 'dark' ? (
-            <Sun size={24} color={theme.colors.yellow50} weight="fill" />
+            <Sun size={32} color={theme.colors.yellow50} weight="fill" />
           ) : (
-            <Moon size={24} color={theme.colors.yellow50} weight="fill" />
+            <Moon size={32} color={theme.colors.yellow50} weight="fill" />
           )}
         </ThemeButton>
       </Header>
@@ -90,6 +90,7 @@ export const Home = () => {
           onChangeText={setParticipantName}
           onSubmitEditing={() => onAddParticipant(participantName)}
         />
+
         <SmallButton
           type="add"
           onPress={() => onAddParticipant(participantName)}
