@@ -1,8 +1,9 @@
 import React from 'react';
-import { FlatList, Text } from 'react-native';
+import { FlatList } from 'react-native';
 
 import { Input } from '@/components/Input';
 import { SmallButton } from '@/components/SmallButton';
+import { ParticipantCard } from '@/components/ParticipantCard';
 
 import {
   Container,
@@ -38,7 +39,7 @@ export const Home = () => {
       <FlatList
         data={participants}
         keyExtractor={(item) => item}
-        renderItem={({ item }) => <Text>{item}</Text>}
+        renderItem={({ item }) => <ParticipantCard name={item} />}
         ListEmptyComponent={() => (
           <EmptyParticipants>
             Ninguém chegou no evento ainda?{'\n'}Adicione participantes a sua
