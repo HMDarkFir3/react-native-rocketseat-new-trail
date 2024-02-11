@@ -1,0 +1,8 @@
+{
+  "extends": "hmdarkfir3/react-native",
+  "settings": {
+    "import/core-modules": [
+      "@expo/vector-icons"
+    ]
+  }
+}
