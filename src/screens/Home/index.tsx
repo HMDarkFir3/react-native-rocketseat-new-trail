@@ -1,5 +1,5 @@
-import React from 'react';
-import { FlatList } from 'react-native';
+import React, { useState } from 'react';
+import { FlatList, Alert } from 'react-native';
 
 import { Input } from '@/components/Input';
 import { SmallButton } from '@/components/SmallButton';
@@ -16,9 +16,17 @@ import {
 } from './styles';
 
 export const Home = () => {
-  const participants: string[] = [];
+  const [participant, setParticipant] = useState<string>('');
+  const [participants, setParticipants] = useState<string[]>([]);
 
-  const onAddParticipant = () => {};
+  const onAddParticipant = (participant: string) => {
+    if (participant) {
+      setParticipants((prev) => [...prev, participant]);
+      setParticipant('');
+    } else {
+      Alert.alert('Atenção', 'Digite o nome do participante.');
+    }
+  };
 
   return (
     <Container>
@@ -28,8 +36,12 @@ export const Home = () => {
       </Header>
 
       <InputWrapper>
-        <Input placeholder="Nome do participante" />
-        <SmallButton type="add" onPress={onAddParticipant} />
+        <Input
+          placeholder="Nome do participante"
+          value={participant}
+          onChangeText={setParticipant}
+        />
+        <SmallButton type="add" onPress={() => onAddParticipant(participant)} />
       </InputWrapper>
 
       <Participants>Participantes</Participants>
