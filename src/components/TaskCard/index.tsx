@@ -27,20 +27,20 @@ interface Props {
 
 export const TaskCard = (props: Props) => {
   const { onCheck, onRemove } = props;
-  const { name, done } = props.data;
+  const { name, isDone } = props.data;
 
   const { colors } = useTheme();
 
   return (
     <Container>
-      <Border isDone={done}>
-        <CheckButton isDone={done} onPress={onCheck}>
-          {done && <Check size={12} color={colors.gray100} weight="bold" />}
+      <Border isDone={isDone}>
+        <CheckButton isDone={isDone} onPress={onCheck}>
+          {isDone && <Check size={12} color={colors.gray100} weight="bold" />}
         </CheckButton>
       </Border>
 
       <TitleWrapper>
-        <Title>{name}</Title>
+        <Title isDone={isDone}>{name}</Title>
       </TitleWrapper>
 
       <RemoveButton onPress={onRemove}>

@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components/native';
 import { BorderlessButton } from 'react-native-gesture-handler';
 
+interface TitleProps {
+  isDone: boolean;
+}
+
 interface BorderProps {
   isDone: boolean;
 }
@@ -28,10 +32,17 @@ export const TitleWrapper = styled.Text`
   padding: 0 8px;
 `;
 
-export const Title = styled.Text`
+export const Title = styled.Text<TitleProps>`
   font-size: 14px;
   font-family: ${({ theme }) => theme.fonts.regular};
   color: ${({ theme }) => theme.colors.gray100};
+
+  ${({ isDone }) =>
+    isDone &&
+    css`
+      text-decoration: line-through;
+      color: ${({ theme }) => theme.colors.gray300};
+    `}
 `;
 
 export const Border = styled.View<BorderProps>`

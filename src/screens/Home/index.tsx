@@ -26,12 +26,12 @@ export const Home = () => {
     {
       id: '1',
       name: 'Estudar React Native',
-      done: false,
+      isDone: false,
     },
     {
       id: '2',
       name: 'Fazer café',
-      done: true,
+      isDone: true,
     },
   ]);
 
@@ -47,7 +47,7 @@ export const Home = () => {
     const newTask: TaskDTO = {
       id: uuid.v4(),
       name: taskName.trim(),
-      done: false,
+      isDone: false,
     };
 
     setTasks((prevState) => [...prevState, newTask]);
@@ -76,7 +76,7 @@ export const Home = () => {
       if (task.id === id) {
         return {
           ...task,
-          done: !task.done,
+          isDone: !task.isDone,
         };
       }
 
