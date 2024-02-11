@@ -16,11 +16,9 @@ import {
 } from './styles';
 
 export const Home = () => {
-  const participants = ['Henrique'];
+  const participants: string[] = [];
 
-  const onAddParticipant = () => {
-    alert('Adicionando participante');
-  };
+  const onAddParticipant = () => {};
 
   return (
     <Container>
@@ -37,6 +35,8 @@ export const Home = () => {
       <Participants>Participantes</Participants>
 
       <FlatList
+        style={{ marginTop: 16, marginBottom: 24 }}
+        contentContainerStyle={{ gap: 8 }}
         data={participants}
         keyExtractor={(item) => item}
         renderItem={({ item }) => <ParticipantCard name={item} />}
@@ -46,6 +46,7 @@ export const Home = () => {
             lista de presença.
           </EmptyParticipants>
         )}
+        showsVerticalScrollIndicator={false}
       />
     </Container>
   );
