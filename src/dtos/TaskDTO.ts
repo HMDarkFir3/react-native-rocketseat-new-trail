@@ -1,5 +1,5 @@
 export interface TaskDTO {
-  id: string;
+  id: string | number[];
   name: string;
   done: boolean;
 }

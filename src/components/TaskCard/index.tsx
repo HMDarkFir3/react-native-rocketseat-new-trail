@@ -1,13 +1,54 @@
 import React from 'react';
+import { useTheme } from 'styled-components';
+import { Check, Trash } from 'phosphor-react-native';
+
+import { TaskDTO } from '@/dtos/TaskDTO';
 
 import clipboardImg from '../../assets/clipboard.png';
 
 import {
+  Container,
+  TitleWrapper,
+  Title,
+  Border,
+  CheckButton,
+  RemoveButton,
   TaskCardEmptyContainer,
   TaskCardEmptyImage,
   TaskCardEmptyTitle,
   TaskCardEmptyDescription,
 } from './styles';
+
+interface Props {
+  data: TaskDTO;
+  onCheck: () => void;
+  onRemove: () => void;
+}
+
+export const TaskCard = (props: Props) => {
+  const { onCheck, onRemove } = props;
+  const { name, done } = props.data;
+
+  const { colors } = useTheme();
+
+  return (
+    <Container>
+      <Border isDone={done}>
+        <CheckButton isDone={done} onPress={onCheck}>
+          {done && <Check size={12} color={colors.gray100} weight="bold" />}
+        </CheckButton>
+      </Border>
+
+      <TitleWrapper>
+        <Title>{name}</Title>
+      </TitleWrapper>
+
+      <RemoveButton onPress={onRemove}>
+        <Trash size={20} color={colors.gray300} />
+      </RemoveButton>
+    </Container>
+  );
+};
 
 export const TaskCardEmpty = () => {
   return (
