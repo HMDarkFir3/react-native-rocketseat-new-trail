@@ -34,8 +34,4 @@ export const QuantityWrapper = styled.View`
   justify-content: space-between;
 
   margin-top: 32px;
-  padding-bottom: 12px;
-
-  border-bottom-width: 1px;
-  border-bottom-color: ${({ theme }) => theme.colors.gray400};
 `;

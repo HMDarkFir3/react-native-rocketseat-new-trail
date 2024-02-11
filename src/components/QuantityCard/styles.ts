@@ -16,7 +16,7 @@ export const Title = styled.Text<TitleProps>`
   ${({ type }) =>
     type === 'create' &&
     css`
-      color: ${({ theme }) => theme.colors.gray200};
+      color: ${({ theme }) => theme.colors.blue};
     `};
 
   ${({ type }) =>
