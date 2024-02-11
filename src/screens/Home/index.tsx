@@ -24,7 +24,7 @@ import {
 } from './styles';
 
 export const Home = () => {
-  const { theme } = useTheme();
+  const { theme, onToggleTheme } = useTheme();
 
   const [participantName, setParticipantName] = useState<string>('');
   const [participants, setParticipants] = useState<ParticipantDTO[]>([]);
@@ -74,7 +74,7 @@ export const Home = () => {
           <EventDate>Sexta, 4 de Novembro de 2022.</EventDate>
         </EventWrapper>
 
-        <ThemeButton>
+        <ThemeButton onPress={onToggleTheme}>
           {theme.title === 'dark' ? (
             <Sun size={24} color={theme.colors.yellow50} weight="fill" />
           ) : (
