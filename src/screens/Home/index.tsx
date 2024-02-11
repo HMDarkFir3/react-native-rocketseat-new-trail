@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { Container, Header, Title, Date } from './styles';
+import { Input } from '@/components/Input';
+
+import { Container, Header, Title, Date, InputWrapper } from './styles';
 
 export const Home = () => {
   return (
@@ -9,6 +11,10 @@ export const Home = () => {
         <Title>Rocketseat</Title>
         <Date>Sexta, 4 de Novembro de 2022.</Date>
       </Header>
+
+      <InputWrapper>
+        <Input placeholder="Nome do participante" />
+      </InputWrapper>
     </Container>
   );
 };
