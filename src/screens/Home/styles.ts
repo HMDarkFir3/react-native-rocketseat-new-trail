@@ -28,6 +28,7 @@ export const Date = styled.Text`
 
 export const InputWrapper = styled.View`
   flex-direction: row;
+  gap: 8px;
 
   margin: 36px 0 48px 0;
 `;

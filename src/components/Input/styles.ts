@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 export const Container = styled.View`
   justify-content: center;
 
-  width: 100%;
+  flex: 1;
   height: 56px;
 
   padding: 0 16px;
