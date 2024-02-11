@@ -1,11 +1,14 @@
 import React from 'react';
 
-import { Container, Title } from './styles';
+import { Container, Header, Title, Date } from './styles';
 
 export const Home = () => {
   return (
     <Container>
-      <Title>Rocketseat</Title>
+      <Header>
+        <Title>Rocketseat</Title>
+        <Date>Sexta, 4 de Novembro de 2022.</Date>
+      </Header>
     </Container>
   );
 };

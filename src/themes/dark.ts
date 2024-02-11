@@ -8,6 +8,10 @@ const dark = {
     green100: '#31CF67',
     red100: '#E23C44',
   },
+  fonts: {
+    regular: 'Roboto_400Regular',
+    bold: 'Roboto_700Bold',
+  },
 };
 
 export { dark };
