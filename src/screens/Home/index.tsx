@@ -1,10 +1,11 @@
 import React from 'react';
 
 import { Input } from '@/components/Input';
+import { SmallButton } from '@/components/SmallButton';
 
 import Logo from '../../assets/logo.svg';
 
-import { Container, Wrapper, Header, InputWrapper } from './styles';
+import { Container, Wrapper, Header, Floating } from './styles';
 
 export const Home = () => {
   return (
@@ -14,9 +15,10 @@ export const Home = () => {
       </Header>
 
       <Wrapper>
-        <InputWrapper>
+        <Floating>
           <Input placeholder="Adicione uma nova tarefa" />
-        </InputWrapper>
+          <SmallButton />
+        </Floating>
       </Wrapper>
     </Container>
   );

@@ -20,10 +20,10 @@ export const Header = styled.View`
   background-color: ${({ theme }) => theme.colors.gray700};
 `;
 
-export const InputWrapper = styled.View`
+export const Floating = styled.View`
   flex-direction: row;
 
   gap: 4px;
 
-  margin-top: -27px;
+  margin-top: -26px;
 `;
