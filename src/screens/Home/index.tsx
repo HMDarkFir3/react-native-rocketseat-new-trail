@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { FlatList, Alert } from 'react-native';
+import uuid from 'react-native-uuid';
 
 import { Input } from '@/components/Input';
 import { SmallButton } from '@/components/SmallButton';
@@ -18,20 +19,32 @@ import {
 } from './styles';
 
 export const Home = () => {
-  const [participant, setParticipant] = useState<string>('');
+  const [participantName, setParticipantName] = useState<string>('');
   const [participants, setParticipants] = useState<ParticipantDTO[]>([]);
 
-  const onAddParticipant = (participant: string) => {
-    if (participant) {
-      setParticipants((prev) => [...prev, participant]);
-      setParticipant('');
-    } else {
-      Alert.alert('Atenção', 'Digite o nome do participante.');
-    }
-  };
+  const onAddParticipant = useCallback(
+    (name: string) => {
+      if (!name) {
+        return Alert.alert('Atenção', 'Digite o nome do participante.');
+      }
 
-  const onRemoveParticipant = (participant: string) => {
-    Alert.alert('Atenção', `Deseja remover ${participant} da lista?`, [
+      if (participants.find((p) => p.name === name)) {
+        return Alert.alert('Atenção', `Participante ${name} já está na lista.`);
+      }
+
+      const newParticipant: ParticipantDTO = {
+        id: uuid.v4(),
+        name,
+      };
+
+      setParticipants((prevState) => [...prevState, newParticipant]);
+      setParticipantName('');
+    },
+    [participants],
+  );
+
+  const onRemoveParticipant = useCallback((name: string) => {
+    Alert.alert('Atenção', `Deseja remover ${name} da lista?`, [
       {
         text: 'Cancelar',
         style: 'cancel',
@@ -40,11 +53,11 @@ export const Home = () => {
         text: 'Remover',
         onPress: () =>
           setParticipants((prev) =>
-            prev.filter((name) => name !== participant),
+            prev.filter((participant) => participant.name !== name),
           ),
       },
     ]);
-  };
+  }, []);
 
   return (
     <Container>
@@ -56,10 +69,14 @@ export const Home = () => {
       <InputWrapper>
         <Input
           placeholder="Nome do participante"
-          value={participant}
-          onChangeText={setParticipant}
+          value={participantName}
+          onChangeText={setParticipantName}
+          onSubmitEditing={() => onAddParticipant(participantName)}
         />
-        <SmallButton type="add" onPress={() => onAddParticipant(participant)} />
+        <SmallButton
+          type="add"
+          onPress={() => onAddParticipant(participantName)}
+        />
       </InputWrapper>
 
       <Participants>Participantes</Participants>
@@ -68,11 +85,11 @@ export const Home = () => {
         style={{ marginTop: 16, marginBottom: 24 }}
         contentContainerStyle={{ gap: 8 }}
         data={participants}
-        keyExtractor={(item) => item}
+        keyExtractor={(item) => String(item.id)}
         renderItem={({ item }) => (
           <ParticipantCard
-            name={item}
-            onRemove={() => onRemoveParticipant(item)}
+            data={item}
+            onRemove={() => onRemoveParticipant(item.name)}
           />
         )}
         ListEmptyComponent={() => (

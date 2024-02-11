@@ -1,4 +1,4 @@
 export interface ParticipantDTO {
-  id: string;
+  id: string | number[];
   name: string;
 }

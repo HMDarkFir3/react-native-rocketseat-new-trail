@@ -12,9 +12,9 @@ export const Border = styled.View`
 `;
 
 export const Container = styled(RectButton)<ContainerProps>`
+  flex: 1;
   align-items: center;
   justify-content: center;
-  flex: 1;
 
   width: 56px;
 

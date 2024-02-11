@@ -2,15 +2,18 @@ import React from 'react';
 
 import { SmallButton } from '@/components/SmallButton';
 
+import { ParticipantDTO } from '@/dtos/ParticipantDTO';
+
 import { Container, Name } from './styles';
 
 interface Props {
-  name: string;
+  data: ParticipantDTO;
   onRemove: () => void;
 }
 
 export const ParticipantCard = (props: Props) => {
-  const { name, onRemove } = props;
+  const { onRemove } = props;
+  const { name } = props.data;
 
   return (
     <Container>
