@@ -1,8 +1,9 @@
 import React, { useState, useCallback } from 'react';
 import { FlatList, Alert } from 'react-native';
 import uuid from 'react-native-uuid';
-import { useTheme } from 'styled-components';
 import { Sun, Moon } from 'phosphor-react-native';
+
+import { useTheme } from '@/hooks/useTheme';
 
 import { Input } from '@/components/Input';
 import { SmallButton } from '@/components/SmallButton';
@@ -23,7 +24,7 @@ import {
 } from './styles';
 
 export const Home = () => {
-  const theme = useTheme();
+  const { theme } = useTheme();
 
   const [participantName, setParticipantName] = useState<string>('');
   const [participants, setParticipants] = useState<ParticipantDTO[]>([]);

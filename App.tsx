@@ -1,14 +1,13 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { ThemeProvider } from 'styled-components';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
 import { Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto';
 
-import { Routes } from '@/routes';
+import { ThemeProvider } from '@/contexts/ThemeContext';
 
-import { dark } from '@/themes/dark';
+import { Routes } from '@/routes';
 
 const App = () => {
   SplashScreen.preventAutoHideAsync();
@@ -25,7 +24,7 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <ThemeProvider theme={dark}>
+      <ThemeProvider>
         <GestureHandlerRootView style={{ flex: 1 }}>
           <Routes />
         </GestureHandlerRootView>
