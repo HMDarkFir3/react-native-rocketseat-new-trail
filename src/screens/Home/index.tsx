@@ -5,6 +5,8 @@ import { Input } from '@/components/Input';
 import { SmallButton } from '@/components/SmallButton';
 import { ParticipantCard } from '@/components/ParticipantCard';
 
+import { ParticipantDTO } from '@/dtos/ParticipantDTO';
+
 import {
   Container,
   Header,
@@ -17,7 +19,7 @@ import {
 
 export const Home = () => {
   const [participant, setParticipant] = useState<string>('');
-  const [participants, setParticipants] = useState<string[]>([]);
+  const [participants, setParticipants] = useState<ParticipantDTO[]>([]);
 
   const onAddParticipant = (participant: string) => {
     if (participant) {
